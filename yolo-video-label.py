@@ -17,7 +17,7 @@ path=os.getcwd()
 
 
 #videonun yüklenmesi
-video_name="731580901.mp4"
+video_name="video.mp4"
 video=cv.VideoCapture(video_name)
 image_path=path+'/image'
 text_path=path+'/text'
