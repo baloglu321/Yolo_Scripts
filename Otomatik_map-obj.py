@@ -16,6 +16,19 @@ data/weights içersinde yolov4 weights ve cfg dosyalarının bulunması gerekmek
 
 bu şartlar bulunduğu taktirde script weights klasöründe bulunan her weights ve cfg dosyası için valid klasöründeki verilerden map değeri hesaplayıp
 klasör ismi ile main konum/result içine "result-(valid klasör ismi)-(weights dosyası).txt" şeklinde map değerlerini içeren dosyaları oluşturacaktır. 
+## ENG
+This code is created to calculate mAP (mean Average Precision) scores by reading validation data from different folders on YOLOv4 Darknet.
+
+It should be run within the main Darknet directory.
+
+Create the following folders within the "data" directory: "valid", "weights", "valid-text", and "maps".
+
+The "valid" folder should contain subfolders for which mAP calculations will be performed, and these subfolders should contain validation data in YOLO format.
+
+The "weights" folder should contain the YOLOv4 weights and configuration (cfg) files.
+
+Under these conditions, the script will calculate mAP scores for each weight and cfg file located in the "weights" folder using the validation data in the "valid" folder. 
+It will generate files in the "main location/result" folder named "result-(subfolder name)-(weight file).txt", which will contain the calculated mAP values.
 
 """
 
