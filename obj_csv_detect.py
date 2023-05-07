@@ -11,7 +11,16 @@ Bu aşamada kod:
     -2 adet kaynak detectionu varsa verilen treshold değerine göre değerlendirip ikisi arasındaki 
     alan farkından yada boyut farkından yarım kaynak olabileceğini söyleyecek şekilde uyaracak ve bu görüntüleri her 15 
     karede bir wron_weld klasörüne söz konusu görüntüyü kayıt edecek.
-    
+## ENG
+
+This code is designed to detect incorrect detections in the weld project.
+
+At this stage, the code performs the following actions:
+
+-If only one weld is detected, it will raise an error and save the image in the "half_weld" folder.
+-If there are two weld detections, it will evaluate them based on a given threshold value and determine 
+if they could potentially be half welds based on the difference in area or size between them. 
+It will provide a warning accordingly and save these images in the "wrong_weld" folder every 15 frames.
     
     
 """
@@ -34,6 +43,21 @@ self.status 3 farklı çıkış veriyor;
 
 kullanılacaksa calc metodu çağırılıyor ve region,lenght ve height farkları ve bunların yüzdeleri hessaplanıp
 region_dif,region_per,lenght_dif,lenght_per,height_dif,height_per değişkenlerine atanıyor.
+
+## ENG
+
+In this section, inference and calculations are performed based on the read CSV file.
+The variable self.status has three possible outputs:
+
+No predictions for the current frame
+Half weld detected
+Double welds detected
+
+If double welds are detected, the two separate weld definitions are extracted, and the x, y, w, and h parameters are assigned to the objects.
+
+If needed, the calc method is called, which calculates the differences and percentages of region, length, and height. 
+These values are assigned to the variables region_dif, region_per, length_dif, length_per, height_dif, and height_per.
+
 """
 
 class Label:
